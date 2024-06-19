@@ -1,0 +1,69 @@
+@startuml
+class com.mygdx.game.Views.ImageView {
+~ Texture texture
++ void draw(SpriteBatch)
++ void dispose()
+}
+
+
+class com.mygdx.game.Views.TextView {
+- BitmapFont font
+- String text
++ void setText(String)
++ void draw(SpriteBatch)
++ void dispose()
+}
+
+
+class com.mygdx.game.Views.View {
+~ float x
+~ float y
+~ float width
+~ float height
++ boolean isHit(float,float)
++ void draw(SpriteBatch)
++ void dispose()
+}
+
+
+class com.mygdx.game.Views.ButtonView {
+~ Texture texture
+~ BitmapFont bitmapFont
+~ String text
+~ float textX
+~ float textY
++ void draw(SpriteBatch)
++ void dispose()
+}
+
+
+class com.mygdx.game.Views.LiveView {
+~ Texture texture
+- byte leftLives
+- byte livePadding
++ void setLeftLives(byte)
++ void draw(SpriteBatch)
++ void dispose()
+}
+
+
+class com.mygdx.game.Views.MovingBackground {
+~ Texture texture
+~ int texture1Y
+~ int texture2Y
+~ int speed
++ void draw(SpriteBatch)
++ void move()
++ void dispose()
+}
+
+
+
+
+com.mygdx.game.Views.View <|-- com.mygdx.game.Views.ImageView
+com.mygdx.game.Views.View <|-- com.mygdx.game.Views.TextView
+com.badlogic.gdx.utils.Disposable <|.. com.mygdx.game.Views.View
+com.mygdx.game.Views.View <|-- com.mygdx.game.Views.ButtonView
+com.mygdx.game.Views.View <|-- com.mygdx.game.Views.LiveView
+com.mygdx.game.Views.View <|-- com.mygdx.game.Views.MovingBackground
+@enduml
